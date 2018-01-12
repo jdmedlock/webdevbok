@@ -26,6 +26,15 @@ development, operations, and project management.
 ### Array Copy vs. Reference
 
 #### Rationale
+Javascript assignment of one object to another merely assigns the reference
+associated with the original object to another. This means that both 
+variables reference the same physical object. This is generally 
+desirable for operations such as passing variables as parameters to
+functions. However, sometimes you really want a copy of the array so
+the original array is preserved.
+
+A relatively simple way to make a copy is to use `JSON.stringify` and
+`JSON.parse` to create a copy of the array.
 
 #### Example
 ```
