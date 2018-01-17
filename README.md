@@ -36,6 +36,8 @@ Here’s the list of all of the falsy values:
 - empty string ""
 - odd value NaN (stands for "not a number", check out the NaN MDN article)
 
+Essentially, if it's not in the list of falsy values, then it's truthy!
+
 ### Array Copy vs. Reference
 
 #### Rationale
