@@ -23,6 +23,19 @@ development, operations, and project management.
 
 ### Javascript
 
+#### Truthy & Falsey Values
+
+A value is truthy if it converts to true when evaluated in a boolean context.
+For example, the number 1 is truthy because, 1 evaluates to true. 
+
+Here’s the list of all of the falsy values:
+- Boolean value false
+- null type
+- undefined type
+- number 0
+- empty string ""
+- odd value NaN (stands for "not a number", check out the NaN MDN article)
+
 ### Array Copy vs. Reference
 
 #### Rationale
