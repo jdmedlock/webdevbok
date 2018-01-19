@@ -23,6 +23,19 @@ development, operations, and project management.
 
 ### Javascript
 
+#### Functions
+
+##### Return
+
+Functions always return some value upon exit. Even if there is no `return` 
+statement. When there's no `return` statement a value of `undefined` is
+implicitly returned. 
+
+This is why you'll see a value of `undefined` in the 
+browser console when you execute a `console.log` statement. This function
+doesn't execute a return so you'll see both the message you have requested it
+to log, plus `undefined`.
+
 #### Truthy & Falsey Values
 
 A value is truthy if it converts to true when evaluated in a boolean context.
