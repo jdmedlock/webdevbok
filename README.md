@@ -36,6 +36,36 @@ browser console when you execute a `console.log` statement. This function
 doesn't execute a return so you'll see both the message you have requested it
 to log, plus `undefined`.
 
+#### Scope
+
+There are three types of scope. `Global scope` refers to variable defined outside
+all functions in the Javascript file. `Function scope` refers to variables
+defined inside a function. Variables that are part of the `global scope` are
+available to all functions in the Javascript file, while those that are part of
+`function scope` are available only to the function they were defined in and any
+functions contained or nested within that function.
+
+ES6 introduced a new type of scope called `Block scope'. *_TBD_*.
+
+When trying to access an identifier, the JavaScript Engine will begin looking
+for the identifier within the scope of the current function. If it isn't found
+then the Engine steps out to the next outer function and reapeats the search.
+the process is repeated through all outer functions until the global scope
+is reached.
+
+##### Hoisting
+
+Before any Javascript is executed all function definitions are `hoisted` to the
+top of their containing scope. This is what allows a function to be called
+ahead of its definition in a file. However, variable assignments are not
+hoisted!
+
+A best practice is to define functions before they are referenced and to define
+variables at the highest point in their containing scope. This ensures that the
+way the code looks and the sequence in which the code executes are the same.
+This can save considerable confusion and bugs since nothing is hidden from the
+webdev.
+
 #### Truthy & Falsey Values
 
 A value is truthy if it converts to true when evaluated in a boolean context.
