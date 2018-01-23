@@ -17,6 +17,26 @@ it easy to find. At the highest level categorization centers on the
 major elements of the WebDev's normal workflow. Namely, design,
 development, operations, and project management.
 
+## Development Environment
+
+### Linux
+
+The following assumes that a CentOS/Fedora/RHEL distro. These commands may
+not work in other distros such as Debnian or ArchLinux.
+
+#### Basic Environment
+
+The following packages are useful for working in a Linux environment and 
+are independent from any particular set of development languages or tools.
+For the sake of brevity `sudo` has not been specified in the installation
+command, but may be required when installing under a user id other than
+`root`.
+
+| Package           | Installation               | Purpose                                    |
+|:------------------|:---------------------------|:-------------------------------------------|
+| Fedora EPEL repo  | `yum install epel-release` | Fedora EPEL repos and third party packages |
+| Bash Autocomplete | `yum install bash-completion bash-completion-extras` | Enable recognition of [TAB] character to autocomplete command line commands |
+
 ## Design
 
 ## Development
@@ -106,5 +126,6 @@ const newArray = JSON.parse(JSON.stringify(currentArray));
 ## Operations
 
 ### Managing Environment Variables
+
 ## Project Management
 
