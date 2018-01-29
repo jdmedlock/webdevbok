@@ -35,6 +35,7 @@ command, but may be required when installing under a user id other than
 | Package           | Installation               | Purpose                                    |
 |:------------------|:---------------------------|:-------------------------------------------|
 | Fedora EPEL repo  | `yum install epel-release` | Fedora EPEL repos and third party packages |
+| Update yum package catalog | `yum update`      |                                            |
 | Bash Autocomplete | `yum install bash-completion bash-completion-extras` | Enable recognition of [TAB] character to autocomplete command line commands |
 
 ## Design
@@ -122,6 +123,18 @@ const newArray = JSON.parse(JSON.stringify(currentArray));
 ### Source Code Control
 
 #### Git
+
+##### Workflows
+
+## Libraries
+
+### jQuery
+
+#### Selectors
+
+- `$('tag')`
+- `$('.class')`
+- `$('#id')`
 
 ## Operations
 
