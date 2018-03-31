@@ -156,7 +156,7 @@ function getParentAndChildren() {
       .then(response => response.json())
       .then(child => {
         /* Process the child */
-        resultHtml.push(<something>);
+        result.push(<something>);
       });
     });
     return Promise.all(childPromises)
