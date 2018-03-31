@@ -2,14 +2,14 @@
 
 ## Purpose
 
-To do their job and to do it effectively Web Developers are required to 
-be familiar with multiple technologies, languages, libraries, tools, 
+To do their job and to do it effectively Web Developers are required to
+be familiar with multiple technologies, languages, libraries, tools,
 frameworks, processes, and procedures. Memorizing information with this
 breadth, complexity, and sheer volume of information is a daunting task.
 
-The purpose of this repo is to collect, organize, and document this 
+The purpose of this repo is to collect, organize, and document this
 information in a way that makes it easy to find and use. In other words,
-to make this information readily available and actionable so you don't 
+to make this information readily available and actionable so you don't
 have to memorize it.
 
 As you might expect this information is categorized and indexed to make
@@ -26,7 +26,7 @@ not work in other distros such as Debnian or ArchLinux.
 
 #### Basic Environment
 
-The following packages are useful for working in a Linux environment and 
+The following packages are useful for working in a Linux environment and
 are independent from any particular set of development languages or tools.
 For the sake of brevity `sudo` has not been specified in the installation
 command, but may be required when installing under a user id other than
@@ -48,11 +48,11 @@ command, but may be required when installing under a user id other than
 
 ##### Return
 
-Functions always return some value upon exit. Even if there is no `return` 
+Functions always return some value upon exit. Even if there is no `return`
 statement. When there's no `return` statement a value of `undefined` is
-implicitly returned. 
+implicitly returned.
 
-This is why you'll see a value of `undefined` in the 
+This is why you'll see a value of `undefined` in the
 browser console when you execute a `console.log` statement. This function
 doesn't execute a return so you'll see both the message you have requested it
 to log, plus `undefined`.
@@ -90,7 +90,7 @@ webdev.
 #### Truthy & Falsey Values
 
 A value is truthy if it converts to true when evaluated in a boolean context.
-For example, the number 1 is truthy because, 1 evaluates to true. 
+For example, the number 1 is truthy because, 1 evaluates to true.
 
 Here’s the list of all of the falsy values:
 - Boolean value false
@@ -106,8 +106,8 @@ Essentially, if it's not in the list of falsy values, then it's truthy!
 
 #### Rationale
 Javascript assignment of one object to another merely assigns the reference
-associated with the original object to another. This means that both 
-variables reference the same physical object. This is generally 
+associated with the original object to another. This means that both
+variables reference the same physical object. This is generally
 desirable for operations such as passing variables as parameters to
 functions. However, sometimes you really want a copy of the array so
 the original array is preserved.
@@ -118,6 +118,51 @@ A relatively simple way to make a copy is to use `JSON.stringify` and
 #### Example
 ```
 const newArray = JSON.parse(JSON.stringify(currentArray));
+```
+
+### Nested Fetches
+
+#### Rationale
+
+It is a common requirement to fetch a parents data along with subordinate
+child data and return an result calculated from both sets of data. This can
+be easily accomplished using `fetch()`, or any other API that returns a
+Promise when the requested data is available.
+
+#### Example
+The caller invokes the function and then waits on the Promise it returns to
+be resolved.
+```
+  getParentAndChildren()
+  .then((html) => {
+    console.log('Contributors HTML: ', html);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+```
+The function retrieves the parent and its children, accumulating the child
+Promises in the `childPromises` array. The result is returned to the caller
+only when all of these Promises have been resolved.
+```
+function getParentAndChildren() {
+  // Retrieve parent and its children
+  let result = [];
+  return fetch( <parent URL> )
+  .then(response => response.json())
+  .then(parent => {
+    let childPromises = repoContributors.map((child) => {
+      return fetch( <child URL> )
+      .then(response => response.json())
+      .then(child => {
+        /* Process the child */
+        resultHtml.push(<something>);
+      });
+    });
+    return Promise.all(childPromises)
+    .then(() => result);
+  });
+}
 ```
 
 ### Source Code Control
